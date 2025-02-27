@@ -23,6 +23,6 @@ psql -U postgres -c "ALTER ROLE sa WITH SUPERUSER;"
 echo "* * Spring BOOT * *"
 
 cd entity3
-#mvn spring-boot:run ../mvn.log
+mvn spring-boot:run > ../mvn.log
 
 echo "* * End post-create **"
