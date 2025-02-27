@@ -8,13 +8,20 @@ mvn -v
 
 # Esperar a que PostgreSQL esté listo
 #while ! pg_isready -U postgres -h localhost -p 5432; do
-  sleep 1
+  sleep 10
 #done
 
 # Crear usuario y base de datos
-#psql -U postgres "CREATE DATABASE Entity3DB;"
-#psql -U postgres -d Entity3DB -c "CREATE ROLE IF NOT EXISTS sa WITH LOGIN PASSWORD 's3cr3t0';"
+psql -U postgres -c "CREATE DATABASE entity3db;"
+psql -U postgres -c "CREATE ROLE sa WITH LOGIN PASSWORD 's3cr3t0';"
+psql -U postgres -c "GRANT ALL PRIVILEGES ON SCHEMA public TO sa;"
+psql -U postgres -c "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO sa;"
+psql -U postgres -c "GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO sa;"
+psql -U postgres -c "GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public TO sa;"
 
-# cd entity3
-# mvn spring-boot:run
+echo "* * Spring BOOT * *"
 
+cd entity3
+#mvn spring-boot:run ../mvn.log
+
+echo "* * End post-create **"
