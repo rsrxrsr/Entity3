@@ -20,9 +20,9 @@ psql -U postgres -c "ALTER ROLE sa WITH SUPERUSER;"
 #psql -U postgres -c "GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO sa;"
 #psql -U postgres -c "GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public TO sa;"
 
-echo "* * Spring BOOT * *"
+#echo "* * Spring BOOT * *"
 
-cd entity3
-mvn spring-boot:run > ../mvn.log
+#cd entity3
+#mvn spring-boot:run > ../mvn.log
 
 echo "* * End post-create **"
