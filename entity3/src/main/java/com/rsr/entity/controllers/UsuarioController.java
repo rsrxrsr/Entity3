@@ -13,6 +13,7 @@ import com.rsr.entity.services.UsuarioService;
 
 @RestController
 @RequestMapping("/usuario")
+@CrossOrigin(origins = "*")
 public class UsuarioController {
 
 	@Autowired
