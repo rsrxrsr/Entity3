@@ -1,11 +1,15 @@
 package com.rsr.entity.model;
 
 import java.util.List;
+
+import org.hibernate.annotations.Immutable;
+
 import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
+@Immutable
 @Data
 public class AreaJefatura {
 

@@ -15,6 +15,9 @@ public class Rol {
 	private Long id;
 	private String rol;
 
+	@ManyToMany
+	private List<Rol> roles;
+	
 	@JsonIgnore
 	@ManyToMany(mappedBy="roles", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<Usuario> usuarios;

@@ -11,6 +11,7 @@ import com.rsr.entity.model.UsuarioDto;
 import com.rsr.entity.repository.IUsuario;
 import com.rsr.entity.services.UsuarioService;
 
+//@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/usuario")
 @CrossOrigin(origins = "*")
