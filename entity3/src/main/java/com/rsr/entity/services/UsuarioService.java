@@ -5,12 +5,17 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.ArrayList;
 
+import com.rsr.entity.model.Rol;
 import com.rsr.entity.model.Usuario;
 import com.rsr.entity.repository.IArea;
 import com.rsr.entity.repository.IPersona;
 import com.rsr.entity.repository.IRol;
 import com.rsr.entity.repository.IUsuario;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class UsuarioService {
@@ -41,6 +46,39 @@ public class UsuarioService {
 		usuario.setRoles(rolRepository.saveAll(usuario.getRoles()));
 		return usuarioRepository.save(usuario);
 	}
+	
+	/*
+	@Transactional
+	public List<Usuario> saveTree(List<Usuario> usuarios) {
+		rolRepository.deleteRol_usuarios();
+    	usuarios.forEach(usuario -> {
+    		if (usuario.getRoles()!=null) {
+    			usuario.getRoles().forEach(rol -> {
+    				System.out.println("*** ID *** " + rol.getId());
+    				rol = rolRepository.findByRol(rol.getRol());
+    				rolRepository.saveRol_usuarios(rol.getId(),usuario.getId()); 	    		
+    			});
+    		}			
+    	});
+		//List<Usuario> usuariosBd = new ArrayList<>();
+    	usuarios.forEach(usuario -> {
+			Usuario usuarioBd = usuarioRepository.findById(usuario.getId()).orElseThrow();
+    		usuarioBd.getRoles().clear();
+    		if (usuario.getRoles()!=null) {
+        		List<Rol> roles = new ArrayList<>();
+    			usuario.getRoles().forEach(rol -> {
+    				rol = rolRepository.findByRol(rol.getRol());
+    				roles.add(rol);
+    			});
+        		usuario.setRoles(roles);
+    		}	
+        	usuarioRepository.save(usuario);
+    	});
+    	//
+    	usuarioRepository.saveAll(usuarios);
+    	return usuarios;
+	}
+*/
 	
 	public boolean deleteById(Long id) {
 		if (usuarioRepository.existsById(id)) {

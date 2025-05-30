@@ -15,7 +15,7 @@ public class ConfigApplication implements WebMvcConfigurer {
                 .allowedOrigins("http://localhost:4200", "http://otrodominio.com") // Orígenes permitidos
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Métodos HTTP permitidos
                 .allowedHeaders("*", "Content-Type", "Authorization") // Cabeceras permitidas
-                .allowCredentials(true) // Permite enviar cookies de autenticación
+                .allowCredentials(false) // Permite enviar cookies de autenticación
                 .maxAge(3600); // Tiempo de vida de la pre-flight response en segundos
     }
 }

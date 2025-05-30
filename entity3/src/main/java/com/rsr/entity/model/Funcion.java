@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +23,7 @@ public class Funcion {
 	private String metodo;
 	
 	@JsonIgnore
-	@ManyToMany(mappedBy="funciones", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@ManyToMany(mappedBy="funciones", fetch=FetchType.EAGER)
 	private List<Rol> roles;
 
 }

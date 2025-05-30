@@ -17,12 +17,12 @@ public class Rol {
 
 	@ManyToMany
 	private List<Rol> roles;
-	
-	@JsonIgnore
-	@ManyToMany(mappedBy="roles", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	private List<Usuario> usuarios;
 
-	@ManyToMany
+	@ManyToMany(cascade=CascadeType.ALL)
 	private List<Funcion> funciones;
 	
+	@JsonIgnore
+	@ManyToMany (mappedBy="roles", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	private List<Usuario> usuarios;
+		
 }

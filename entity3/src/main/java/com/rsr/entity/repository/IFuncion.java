@@ -6,4 +6,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import com.rsr.entity.model.Funcion;
 
 @CrossOrigin(origins = "*")
-public interface IFuncion extends JpaRepository<Funcion, Long> {}
+public interface IFuncion extends JpaRepository<Funcion, Long> {
+	Funcion findByFuncion(String funcion); 
+}

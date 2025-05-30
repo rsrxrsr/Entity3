@@ -14,12 +14,19 @@ public class Area {
 	private Long id;
 	private String area;
 	private int orden;
-
+	private int nivel;
+	private String puesto;
+	
 	@JsonIgnore
     //@JoinColumn(name="jefatura_id")
-    @ManyToOne //(fetch = FetchType.LAZY)
+    @ManyToOne (cascade=CascadeType.ALL) //fetch = FetchType.LAZY)
 	private Area jefatura;
-    
+
+	@JsonIgnore
+    //@JoinColumn(name="jefe_id")
+    @OneToOne (cascade=CascadeType.ALL)
+	private Usuario jefe;
+	
 	@JsonIgnore
     @OneToMany(mappedBy="jefatura") //, cascade=CascadeType.ALL)
     private List<Area> areas; 
