@@ -18,15 +18,15 @@ public interface IUsuario extends JpaRepository<Usuario, Long> {
 	//http://localhost:8080/entity/restapi/usuarios/search/findByUsuario?usuario=Luis
 	abstract Usuario findByUsuario(String usuario);
 	//http://localhost:8080/entity/restapi/usuarios/search/findByUsuarioAndPasswordAndEstatus?usuario=Luis&password=psw&estatus=1
-	abstract Optional<Usuario> findByUsuarioAndPasswordAndEstatus(String usuario, String password, Integer estatus);
+	abstract Optional<Usuario> findByUsuarioAndPasswordAndEstatus(String usuario, String password, Usuario.Estatus estatus);
 	//http://localhost:8080/entity/restapi/usuarios/search/findByUsuarioOrPassword?usuario=Luis&password=nose
 	abstract List<Usuario> findByUsuarioOrPassword(String usuario, String password);
 
-	// http://localhost:8080/entity/restapi/usuarios/search/queryByEstatus?estatus=1
+	// http://localhost:8080/entity/restapi/usuarios/search/queryByEstatus?estatus=ACTIVO
 	@Query (
 			value="SELECT u FROM Usuario u WHERE u.estatus = :estatus"
 	)
-	List<Usuario> queryByEstatus(@Param("estatus") Integer estatus);
+	List<Usuario> queryByEstatus(@Param("estatus") Usuario.Estatus estatus);
 
 	// http://localhost:8080/entity/restapi/usuarios/search/sqlByEstatus?estatus=1
 	@Query (

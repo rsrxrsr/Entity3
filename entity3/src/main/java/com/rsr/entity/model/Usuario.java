@@ -16,7 +16,7 @@ public class Usuario {
 	private Long id;
 	private String usuario;
 	private String password;
-	private Integer estatus;
+	private Estatus estatus;
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	private Persona persona;
@@ -26,5 +26,9 @@ public class Usuario {
 	
 	@ManyToMany(cascade=CascadeType.ALL)
 	private List<Rol> roles;
+	
+	public enum Estatus {
+		ACTIVO,	SUSPENDIDO, BAJA	
+	}
 
 }

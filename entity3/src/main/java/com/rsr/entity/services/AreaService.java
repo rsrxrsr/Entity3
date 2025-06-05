@@ -24,17 +24,17 @@ public class AreaService {
 	IArea areaRepository;
 	
 	public PaginaArea getPaginaArea(int pagina, int size, String sort) {		
-	        Pageable pageable = PageRequest.of(pagina, size, Sort.by(Sort.Direction.ASC, sort));
-	        Page<Area> pageArea = areaRepository.findAll(pageable);	        
-	        PaginaArea paginaArea = new PaginaArea();
-	        paginaArea.setContent(pageArea.getContent().stream()
-	        		.map(AreaDto::new).collect(Collectors.toList()));
-	        paginaArea.setPage(new Pagina());
-	        paginaArea.getPage().setSize(pageArea.getSize());
-	        paginaArea.getPage().setTotalElements(pageArea.getTotalElements());
-	        paginaArea.getPage().setTotalPages(pageArea.getTotalPages());
-	        paginaArea.getPage().setNumber(pageArea.getNumber());
-	        return paginaArea;
+		Pageable pageable = PageRequest.of(pagina, size, Sort.by(Sort.Direction.ASC, sort));
+	    Page<Area> pageArea = areaRepository.findAll(pageable);	        
+        PaginaArea paginaArea = new PaginaArea();
+        paginaArea.setContent(pageArea.getContent().stream()
+        		.map(AreaDto::new).collect(Collectors.toList()));
+        paginaArea.setPage(new Pagina());
+        paginaArea.getPage().setSize(pageArea.getSize());
+        paginaArea.getPage().setTotalElements(pageArea.getTotalElements());
+        paginaArea.getPage().setTotalPages(pageArea.getTotalPages());
+        paginaArea.getPage().setNumber(pageArea.getNumber());
+        return paginaArea;
 	}
 
 	public List<Area> updateArea() {

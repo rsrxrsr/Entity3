@@ -2,8 +2,8 @@ package com.rsr.entity.model;
 
 public enum Nivel {
 		Empresa,
-		Dirección,
-		Subdireccion,
+	    Dirección,
+	    Subdirección,
 		Gerencia,
 		Departamento,
 		Oficina,
@@ -11,5 +11,5 @@ public enum Nivel {
 		Proveedor,
 		Cliente,
 		Socio,
-		Persona	
+		Persona;
 }

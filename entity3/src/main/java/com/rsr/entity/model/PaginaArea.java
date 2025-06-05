@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class PaginaArea {
-	List<Area> content;
+	List<AreaDto> content;
 	@Embedded
 	Pagina page;
 	

@@ -14,21 +14,24 @@ public class Area {
 	private Long id;
 	private String area;
 	private int orden;
-	private int nivel;
+	private Nivel nivel;
 	private String puesto;
+	private Usuario.Estatus estatus;
 	
-	@JsonIgnore
+	//@JsonIgnore
     //@JoinColumn(name="jefatura_id")
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToOne (cascade=CascadeType.ALL) //fetch = FetchType.LAZY)
 	private Area jefatura;
 
-	@JsonIgnore
+	//@JsonIgnore
     //@JoinColumn(name="jefe_id")
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToOne (cascade=CascadeType.ALL)
 	private Usuario jefe;
 	
 	@JsonIgnore
-    @OneToMany(mappedBy="jefatura") //, cascade=CascadeType.ALL)
+    @OneToMany(mappedBy="jefatura")
     private List<Area> areas; 
 
 	@JsonIgnore
@@ -36,3 +39,7 @@ public class Area {
 	private List<Usuario> usuarios;
 	
 }
+
+
+
+

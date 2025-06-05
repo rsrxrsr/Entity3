@@ -30,7 +30,7 @@ public class UsuarioService {
 	IUsuario usuarioRepository;
 	
 	public Usuario login(Usuario usuario) {
-		return usuarioRepository.findByUsuarioAndPasswordAndEstatus(usuario.getUsuario(), usuario.getPassword(), 1)
+		return usuarioRepository.findByUsuarioAndPasswordAndEstatus(usuario.getUsuario(), usuario.getPassword(), Usuario.Estatus.ACTIVO)
 								.orElse(new Usuario());
 	}
 

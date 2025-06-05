@@ -63,6 +63,7 @@ public class AreaController {
 
 	@PostMapping()
     Area save(@RequestBody Area area) {
+		//area.setJefatura(areaRepository.findById(area.getJefatura().getId()).orElseThrow());
     	return areaRepository.save(area);
     }
 
