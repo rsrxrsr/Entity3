@@ -1,6 +1,8 @@
 package com.rsr.entity.model;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +18,6 @@ public class UsuarioDto extends Usuario {
 	}
 
 	public UsuarioDto (Usuario usuario) {
-		setId(usuario.getId());
 		setUsuario(usuario.getUsuario());
 		setEstatus(usuario.getEstatus());
 		setArea(usuario.getArea());
@@ -30,7 +31,6 @@ public class UsuarioDto extends Usuario {
 	}
 
 	public void setRutas(List<Rol> roles) {
-		if (roles==null) return;
         roles.stream().forEach(rol -> {
         	rol.getFunciones().forEach(funcion ->{rutas.put(funcion.getUrl(),true);});
         	setRutas(rol.getRoles());

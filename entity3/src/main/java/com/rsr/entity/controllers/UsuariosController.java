@@ -14,6 +14,7 @@ import com.rsr.entity.services.UsuarioService;
 //@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/usuario")
+@CrossOrigin(origins = "*")
 public class UsuarioController {
 
 	@Autowired
@@ -42,8 +43,8 @@ public class UsuarioController {
 		return usuarioRepository.findByUsuarioOrPassword(valor, valor);
 	}
 
-	@GetMapping(path="/hqlByEstatus")
-	List<Usuario> queryByestatus(@RequestParam("estatus") Usuario.Estatus estatus) {
+	@GetMapping(path="/queryByEstatus")
+	List<Usuario> queryByestatus(@RequestParam("estatus") Integer estatus) {
 		return usuarioRepository.queryByEstatus(estatus);
 	}
 	
@@ -68,16 +69,6 @@ public class UsuarioController {
 		return new UsuarioDto(usuarioService.login(usuario));
 	}
 	
-	@GetMapping(path="/tree")
-	List<Usuario> findTree() {
-		return usuarioRepository.findAll();
-	}
-
-	@PostMapping(path="/tree")
-    List<Usuario> saveTree(@RequestBody List<Usuario> usuarios) {    	
-    	return usuarioRepository.saveAll(usuarios);
-    }
-
 	@PostMapping()
     Usuario save(@RequestBody Usuario usuario) {    	
     	return usuarioService.save(usuario);
@@ -87,5 +78,5 @@ public class UsuarioController {
     Boolean deleteById(@PathVariable("id") Long id) {
     	return usuarioService.deleteById(id);
     }
-    
+        
 }

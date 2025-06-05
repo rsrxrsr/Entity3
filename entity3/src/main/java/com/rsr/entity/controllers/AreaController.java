@@ -76,5 +76,6 @@ public class AreaController {
 	AreaDto updateArbol(@PathVariable("id") Long id) {
 		return areaService.updateArbol(id);
 	}
+
 		
 }
